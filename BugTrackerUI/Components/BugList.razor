@@ -29,6 +29,7 @@
 </table>
 
 @code {
+
     [Inject]
     public IBugService BugService { get; set; }
 
@@ -36,6 +37,6 @@
 
     protected override void OnInitialized()
     {
-        Bugs = BugService.GetBugs();
+        Bugs = BugService.GetBugs().OrderBy(b => b.Priority).ToList();
     }
 }
